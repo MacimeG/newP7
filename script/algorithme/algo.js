@@ -11,13 +11,7 @@ export default function searchRecipe(lettre, recipesFiltered){
     recipe.ingredients.some((ingObj) => {
         ingObj.ingredient.toLowerCase().includes(lettre)
     }) )
-    // const recipesFiltre = recipesFiltered.filter((recipe) => recipe.name.toLowerCase().includes(lettre) || recipe.description.toLowerCase().includes(lettre) ||
-    // recipesFiltered.filter((ingObj) => {
-    //     console.log(ingObj);
-    // //  ingObj.ingredient.toLowerCase().includes(lettre)
-    // }) )
-    // ici j'appel une fonction me permettant de "supprimé" l'html présent et correspondant bien sur
-    // cleanHtml();
+   
     
     return recipesFiltre;
 }

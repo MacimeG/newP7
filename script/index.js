@@ -2,9 +2,10 @@ import { recipes } from "../data/recipes.js";
 import factoryRecipe from "./factorie/recipesFactorie.js";
 import searchRecipe from "./algorithme/algo.js";
 import {
-  searchByApp,
-  searchByTags,
-  searchByTagUstens,
+  // searchByApp,
+  // searchByTags,
+  // searchByTagUstens,
+  searchByAllTags
 } from "./algorithme/searchByTags.js";
 import {
   openAppareil,
@@ -63,62 +64,70 @@ export function triIngredient(arrayIng) {
 
     liIngredient.addEventListener("click", (e) => {
       selectedItems.push(ing);
+    
+
       // j'appel ma fonction qui me permet d'afficher le tag (le petit bouton)
       selectTag(ing);
       // j'appel ma fonction searchByTags, ou le resultat et stocké dans la const research.
-      const research = searchByTags(recipesFiltered, selectedItems);
-      // ici je crée un tableau vide dans lequel je vais inséré les ingredients restant par rapport a la recherche.
-      let arrayIngFiltreByRecipe = [];
-      // ici je fais un .map sur le resultat de la recherche pour récupéré les ingredients
-      research.map((ingredients) =>
-        ingredients.ingredients.forEach((element) => {
-          // je push les ingredients dans mon tableau vide
-          arrayIngFiltreByRecipe.push(element.ingredient);
-        })
-      );
-      // je fais un newSet de mon tableau pour enelever les doublons.
-      arrayIngFiltreByRecipe = [...new Set(arrayIngFiltreByRecipe)];
-      arrayIngFiltreByRecipe.sort();
-        // ici je filtre mon tableau, pour pouvoir supprimé le doublons (l'element cliqué)
-      let filtrerarrayIng = arrayIngFiltreByRecipe.filter(
-        (ingr) => !selectedItems.includes(ingr)
-      );
-      // je fais pareil pour les appareils
-      let arrayAppFiltre = [];
-      research.map((appareil) => {
-        console.log(appareil.appliance);
-        arrayAppFiltre.push(appareil.appliance);
-      });
-      arrayAppFiltre = [...new Set(arrayAppFiltre)];
-      arrayAppFiltre.sort();
-      // pareil pour les ustensiles
-      let arrayUstFiltre = [];
-      research.map((ustensil) =>
-        ustensil.ustensils.forEach((element) => {
-          arrayUstFiltre.push(element);
-        })
-      );
-      arrayUstFiltre = [...new Set(arrayUstFiltre)];
-      arrayUstFiltre.sort();
+   
+        const research = searchByAllTags(recipesFiltered, selectedItems);
+  
+        console.log(research);
+        // ici je crée un tableau vide dans lequel je vais inséré les ingredients restant par rapport a la recherche.
+        let arrayIngFiltreByRecipe = [];
+        // ici je fais un .map sur le resultat de la recherche pour récupéré les ingredients
+        research.map((ingredients) =>
+          ingredients.ingredients.forEach((ele) => {
+            // je push les ingredients dans mon tableau vide
+            arrayIngFiltreByRecipe.push(ele.ingredient);
+          })
+        );
+        // je fais un newSet de mon tableau pour enelever les doublons.
+        arrayIngFiltreByRecipe = [...new Set(arrayIngFiltreByRecipe)];
+        arrayIngFiltreByRecipe.sort();
+          // ici je filtre mon tableau, pour pouvoir supprimé le doublons (l'element cliqué)
+        let filtrerarrayIng = arrayIngFiltreByRecipe.filter(
+          (ingr) => !selectedItems.includes(ingr)
+        );
+       
+          // je fais pareil pour les appareils
+        let arrayAppFiltre = [];
+        research.map((appareil) => {
+          arrayAppFiltre.push(appareil.appliance);
+        });
+        arrayAppFiltre = [...new Set(arrayAppFiltre)];
+        arrayAppFiltre.sort();
+        // pareil pour les ustensiles
+        let arrayUstFiltre = [];
+        research.map((ustensil) =>
+          ustensil.ustensils.forEach((element) => {
+            arrayUstFiltre.push(element);
+          })
+        );
+        arrayUstFiltre = [...new Set(arrayUstFiltre)];
+        arrayUstFiltre.sort();
+  
+        // ici j'efface les contenus des listes.
+        ulIngredient.innerText = "";
+        ulAppareil.innerText = "";
+        ulUstensils.innerText = "";
+        // ici je rappel les fonctions qui affiche mes listes d'ingredient, app et ustensiles
+        triIngredient(filtrerarrayIng);
+        triAppliance(arrayAppFiltre);
+        triUstens(arrayUstFiltre);
+        // ici j'appel ma fonction qui efface les recettes
+        deleteRecipe();
+        // ici j'appel ma fonction qui affiche mes recettes, avec le tableau qui contient les resultats.
+        displayRecipe(research);
 
-      // ici j'efface les contenus des listes.
-      ulIngredient.innerText = "";
-      ulAppareil.innerText = "";
-      ulUstensils.innerText = "";
-      // ici je rappel les fonctions qui affiche mes listes d'ingredient, app et ustensiles
-      triIngredient(filtrerarrayIng);
-      triAppliance(arrayAppFiltre);
-      triUstens(arrayUstFiltre);
-      // ici j'appel ma fonction qui efface les recettes
-      deleteRecipe();
-      // ici j'appel ma fonction qui affiche mes recettes, avec le tableau qui contient les resultats.
-      displayRecipe(research);
+      
     });
     ulIngredient.appendChild(liIngredient);
   });
   return;
 }
 // pareil pour les appareils
+
 export function triAppliance(arrayApp) {
   let ulIngredient = document.querySelector(".ingredient");
   let ulAppareil = document.querySelector(".appareil");
@@ -131,9 +140,14 @@ export function triAppliance(arrayApp) {
     liAppareil.addEventListener("click", (e) => {
       selectedItems.push(app);
 
+
       selectAppareil(app);
 
-      const research = searchByApp(recipesFiltered, selectedItems);
+
+      const research = searchByAllTags(recipesFiltered, selectedItems);
+
+      console.log(research);
+
 
       let arrayAppFiltre = [];
       research.map((appareil) => {
@@ -142,6 +156,7 @@ export function triAppliance(arrayApp) {
       let filtrerarrayApp = arrayAppFiltre.filter(
         (appa) => !selectedItems.includes(appa)
       );
+    
 
       let arrayIngFiltreByRecipe = [];
       research.map((ingredients) =>
@@ -177,11 +192,11 @@ export function triAppliance(arrayApp) {
   });
 }
 // pareil pour les ustensils
+
 export function triUstens(arrayUstens) {
   let ulUstensils = document.querySelector(".ustens");
   let ulIngredient = document.querySelector(".ingredient");
   let ulAppareil = document.querySelector(".appareil");
-
   arrayUstens.forEach((ust) => {
     const liUst = document.createElement("li");
     liUst.className = "ustens_item";
@@ -190,9 +205,15 @@ export function triUstens(arrayUstens) {
     liUst.addEventListener("click", (e) => {
       selectedItems.push(ust);
 
+
       selectUstens(ust);
 
-      const research = searchByTagUstens(recipesFiltered, selectedItems);
+   
+      const research = searchByAllTags(recipesFiltered, selectedItems);
+
+      
+      console.log(research);
+
       let arrayUstFiltre = [];
       research.map((ustensil) =>
         ustensil.ustensils.forEach((element) => {
@@ -202,6 +223,7 @@ export function triUstens(arrayUstens) {
       let filtrerarrayUst = arrayUstFiltre.filter(
         (ust) => !selectedItems.includes(ust)
       );
+  
       let arrayIngFiltreByRecipe = [];
       research.map((ingredients) =>
         ingredients.ingredients.forEach((element) => {

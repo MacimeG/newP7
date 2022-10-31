@@ -1,6 +1,6 @@
 // ici faire la fonction d'ouverture du bouton ingrédient, et l'appeler sur l'add event listener situé sur la page index. 
 import { selectedItems, recipesFiltered, displayRecipe, deleteRecipe, triIngredient, triAppliance, triUstens } from "./index.js";
-import { searchByTags, searchByApp, searchByTagUstens } from "./algorithme/searchByTags.js";
+import {  searchByAllTags } from "./algorithme/searchByTags.js";
 export function openIngredient(){
     //ici je récupere les elements dont j'ai besoin.
     const ul = document.querySelector('.ingredient');
@@ -69,7 +69,7 @@ export function selectTag(oneTag){
             if(element === tagTitle.textContent){
                 selectedItems.splice(i, 1)
                 console.log(selectedItems);
-                const newSearching = searchByTags(recipesFiltered, selectedItems)
+                const newSearching = searchByAllTags(recipesFiltered, selectedItems)
 
                 let arrayIngFiltreByRecipe = [];
                 newSearching.map((ingredients) =>
@@ -82,7 +82,6 @@ export function selectTag(oneTag){
 
                 let arrayAppFiltre = []
                 newSearching.map((appareil)=>{
-                    console.log(appareil.appliance);
                     arrayAppFiltre.push(appareil.appliance)
                 })
                 arrayAppFiltre = [...new Set(arrayAppFiltre)]
@@ -144,8 +143,9 @@ export function selectAppareil(oneTag){
             if(element === tagTitle.textContent){
                 
                 selectedItems.splice(i, 1)
+                // selectedApp.splice(i, 1)
 
-                const newSearching = searchByApp(recipesFiltered, selectedItems)
+                const newSearching = searchByAllTags(recipesFiltered, selectedItems)
 
                 let arrayIngFiltreByRecipe = [];
                 newSearching.map((ingredients) =>
@@ -158,7 +158,6 @@ export function selectAppareil(oneTag){
 
                 let arrayAppFiltre = []
                 newSearching.map((appareil)=>{
-                    console.log(appareil.appliance);
                     arrayAppFiltre.push(appareil.appliance)
                 })
                 arrayAppFiltre = [...new Set(arrayAppFiltre)]
@@ -213,13 +212,13 @@ export function selectUstens(oneTag){
         let ulUstensils = document.querySelector(".ustens");
 
         removeTag(tagAfficher);
-        console.log(selectedItems);
         for (let i = 0; i < selectedItems.length; i++) {
             const element = selectedItems[i];
             if(element === tagTitle.textContent){
                 selectedItems.splice(i, 1)
-                console.log(selectedItems);
-                const newSearching = searchByTagUstens(recipesFiltered, selectedItems)
+                // selectedUst.splice(i, 1)
+               
+                const newSearching = searchByAllTags(recipesFiltered, selectedItems)
 
                 let arrayIngFiltreByRecipe = [];
                 newSearching.map((ingredients) =>
