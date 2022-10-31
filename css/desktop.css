@@ -24,6 +24,13 @@
     .search_ingredients, .search_appareil{
         margin-right: 20px;
         margin-bottom: 0px;
+       
+    }
+    .ingredientOpen{
+        width: 55%;
+    }
+    .ustensiles_open{
+        width: 55%;
     }
     .recherche{
         margin-left: 0px;
