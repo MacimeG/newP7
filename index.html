@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/desktop.css">
+    <title>Les petits plats</title>
+</head>
+<body>
+    <header>
+      <img src="/image/unknown.png" alt="Logo les petits plats" title="Logo les petits plats">
+    </header>
+    <main>
+        <section class="recherche">
+            <label for="search">
+                <input id="search" type="text" placeholder="Rechercher une recette">
+            </label>
+            <div class="tagSelect"></div>
+          <div class="search_comboBox">
+            
+              <div class="search_ingredients">
+                <input class="ingredient_btn boxInput" type="text" placeholder="Ingrédients" >
+                <i class=" btnIcon fa-solid fa-chevron-down"></i> 
+                 <ul class="ingredient">
+                </ul>
+              </div>
+            <div class="search_appareil">
+              <input class="appareil_btn boxInput" type="text" placeholder="Appareil">
+              <i class=" btnIconAppareil fa-solid fa-chevron-down"></i>
+              <ul class="appareil">
+              </ul>
+            </div>
+            <div class="search_ustensiles">
+              <input class="ustens_btn boxInput" type="text" placeholder="Ustensiles">
+              <i class=" btnIconUstens fa-solid fa-chevron-down"></i>
+              <ul class="ustens">
+              </ul>
+            </div>
+          </div>
+        </section>
+        <section class="recette_card">
+       
+        </section>
+    </main>
+    <!-- <script src="./script/factories/indexFactorie.js"></script> -->
+    <script src="./script/index.js" type="module"></script>
+    <!-- <script src="./script/algorithme1/algo.js"></script> -->
+</body>
+</html>

@@ -1,0 +1,304 @@
+main{
+    width: 90%;
+    margin-right: auto;
+    margin-left: auto;
+}
+header{
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+}
+img{
+    height: 100px;
+    width: auto;
+}
+.recherche{
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 25px;
+}
+#search{
+    /* width: 90%; */
+    width: 100%;
+    height: 60px;
+    border-radius: 5px;
+    border: 0px solid transparent;
+    background-color: #E7E7E7;
+    /* margin-left: auto;
+    margin-right: auto; */
+    /* margin-left: 20px;
+    margin-right: 20px; */
+    margin-bottom: 40px;
+}
+.search_comboBox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+.boxInput{
+    height: 70px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.search_ingredients{
+    margin-bottom: 15px;
+    /* mettre le background color quand la section tri et ouverte */
+    /* background-color: #3282F7; */
+    border-radius: 5px;
+    width: min-content;
+    /* mettre le width a 100% quand la section de tri et ouverte. */
+    /* width: 100%; */
+}
+/* ici c'est pour mettre en place le toggle */
+.ingredientOpen{
+    background-color: #3282F7;
+    width: 100%;
+}
+.search_appareil{
+    margin-bottom: 15px;
+    width: min-content;
+    /* a mettre quand c ouvert */
+    /* background-color: #68D9A4;
+    width: 40%; */
+}
+.appareil{
+    list-style: none;
+    background-color: #68D9A4;
+    max-height: 300px;
+    margin: 0;
+    column-count: 3;
+    padding: 0;
+    display: none;
+}
+.appareil_item{
+    font-size: 18px;
+    font-weight: normal;
+    color: white;
+    cursor: pointer;
+}
+.ulAppareilOpen{
+    display: block;
+}
+.appareilOpen{
+    background-color: #68D9A4;
+    width: 40%;
+}
+.search_ustensiles{
+    width: min-content;
+}
+/* a mettre quand c ouvert */
+.ustensiles_open{
+    background-color: #ED6454;
+    width: 40%;
+}
+.ustens{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    column-count: 3;
+    max-height: 300px;
+    display: none;
+}
+.ustensOpen{
+    /* display: block; */
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(3, 1fr);
+    overflow: scroll;
+}
+
+.ustens_item{
+    color: white;
+    font-size: 18px;
+    font-weight: normal;
+    cursor: pointer;
+    margin-top: 5px;
+}
+.ingredient_btn{
+    background-color: #3282F7;
+}
+.ingredient_btn:focus{
+   outline: none;
+   color: white;
+}
+.appareil_btn{
+    background-color: #68D9A4;
+}
+.ustens_btn{
+    background-color: #ED6454;
+}
+.btnIcon{
+    position: relative;
+    color: white;
+    left: 139px;
+    bottom: 46px;
+}
+.btnIconAppareil{
+    position: relative;
+    color: white;
+    left: 139px;
+    bottom: 46px;
+}
+.btnIconUstens{
+    position: relative;
+    color: white;
+    left: 139px;
+    bottom: 46px;
+}
+/* ici c'est pour mettre en place le toggle, sur l'icon de la fleche. */
+.appareil_icon{
+    bottom: 0px;
+    transform: rotate(180deg);
+}
+.iconUstensOpen{
+    bottom: 0px;
+    transform: rotate(180deg);
+}
+/* ici c'est pour mettre en place le toggle */
+.ing{
+    bottom: 0px;
+    /* left: 400px; */
+    transform: rotate(180deg);
+}
+.boxInput::placeholder{
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+}
+.picturecard{
+    width: 350px;
+    background-color: #C7BEBE;
+    height: 190px;
+    margin: auto;
+    border-radius: 5px 5px 0px 0px;
+}
+.card_header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.card_main{
+    display: flex;
+    flex-direction: row;
+}
+
+.list_ingredient{
+    list-style: none;
+    font-size: 12px;
+    width: 100%;
+    padding: 10px;
+}
+/* ici je met en place le style pour la liste d'ingredient etc .. */
+.ingredient{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    columns: 3;
+    max-height: 300px;
+    width: 100%;
+    display: none;
+}
+/* ici c'est pour mettre en place le toggle */
+.ingredient_list_open{
+    /* display: block; */
+    background-color: #3282F7;
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(3, 1fr);
+    overflow: scroll;
+}
+.ingredient_item{
+    color: white;
+    font-size: 18px;
+    font-weight: normal;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.title_recette{
+    font-size: 18px;
+    font-weight: normal;
+    padding-left: 10px;
+}
+.card_recette_time{
+    margin-right: 10px;
+    display: flex;
+    flex-direction: row-reverse;
+    font-size: 18px;
+    font-weight: 700;
+}
+.card_recette_description{
+    font-size: 12px;
+    overflow: hidden;
+    line-height: 1em;
+    width: 100%;
+    padding: 10px;
+    max-height: 6em;
+}
+.card{
+    background-color: #E7E7E7;
+    width: min-content;
+    margin-bottom: 25px;
+    border-radius: 5px;
+    height: 410px;
+}
+.recette_card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ici je m'occupe de l'affichage des tags */
+.tagSelect{
+    display: flex;
+    flex-direction: row;
+}
+.tagShowUpIngredient{
+    height: 30px;
+    display: flex;
+    align-items: center;
+    background-color: #3282F7;
+    border: none;
+    border-radius: 5px;
+}
+.tagShowUpIngredient p {
+    margin: 0px;
+    color: white;
+}
+.iconCloseTag{
+    color: white;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.tagShowUpAppareil{
+    height: 30px;
+    display: flex;
+    align-items: center;
+    background-color: #68D9A4;
+    border: none;
+    border-radius: 5px;
+}
+.tagShowUpAppareil p {
+    margin: 0px;
+    color: white;
+}
+
+.tagShowUpUstens{
+    height: 30px;
+    display: flex;
+    align-items: center;
+    background-color: #ED6454;
+    border: none;
+    border-radius: 5px;
+}
+.tagShowUpUstens p {
+    margin: 0px;
+    color: white;
+}
+.none{
+    color: transparent;
+}
