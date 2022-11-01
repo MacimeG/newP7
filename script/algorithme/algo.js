@@ -15,3 +15,4 @@ export default function searchRecipe(lettre, recipesFiltered){
     
     return recipesFiltre;
 }
+// ici faire pareil mais avec des boucles nativ, test push sur la 2eme branche
