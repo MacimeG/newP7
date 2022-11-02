@@ -2,9 +2,6 @@ import { recipes } from "../data/recipes.js";
 import factoryRecipe from "./factorie/recipesFactorie.js";
 import searchRecipe from "./algorithme/algo.js";
 import {
-  // searchByApp,
-  // searchByTags,
-  // searchByTagUstens,
   searchByAllTags
 } from "./algorithme/searchByTags.js";
 import {
@@ -48,6 +45,7 @@ recipesFiltered.map((ustensiles) =>
 );
 arrayUstens = [...new Set(arrayUstens)];
 arrayUstens.sort();
+
 // ici je vais crée les fonctions qui vont me permettre de remplir mes 3 boutons présent dans html
 export function triIngredient(arrayIng) {
   // ici je récupere les elements html dont j'ai besoin
@@ -61,86 +59,64 @@ export function triIngredient(arrayIng) {
     liIngredient.className = "ingredient_item";
     liIngredient.innerText = ing.toLowerCase();
 
-
     liIngredient.addEventListener("click", (e) => {
       selectedItems.push(ing);
     
-
       // j'appel ma fonction qui me permet d'afficher le tag (le petit bouton)
       selectTag(ing);
       // j'appel ma fonction searchByTags, ou le resultat et stocké dans la const research.
+      const research = searchByAllTags(recipesFiltered, selectedItems);
+  
+      // ici je crée un tableau vide dans lequel je vais inséré les ingredients restant par rapport a la recherche.
+      let arrayIngFiltreByRecipe = [];
+      // ici je fais un .map sur le resultat de la recherche pour récupéré les ingredients
+      research.map((ingredients) =>
+        ingredients.ingredients.forEach((ele) => {
+          // je push les ingredients dans mon tableau vide
+          arrayIngFiltreByRecipe.push(ele.ingredient);
+        })
+      );
    
-        const research = searchByAllTags(recipesFiltered, selectedItems);
-  
-        console.log(research);
-        // ici je crée un tableau vide dans lequel je vais inséré les ingredients restant par rapport a la recherche.
-        let arrayIngFiltreByRecipe = [];
-        // ici je fais un .map sur le resultat de la recherche pour récupéré les ingredients
-        // research.map((ingredients) =>
-        //   ingredients.ingredients.forEach((ele) => {
-        //     // je push les ingredients dans mon tableau vide
-        //     arrayIngFiltreByRecipe.push(ele.ingredient);
-        //   })
-        // );
-        // ici je fais une boucle for pour la v2
-        for (let i = 0; i < research.length; i++) {
-          const element = research[i];
-          for (let j = 0; j < element.ingredients.length; j++) {
-            const ingredients = element.ingredients[j];
-            arrayIngFiltreByRecipe.push(ingredients.ingredient);
-          }
-        }
-        // je fais un newSet de mon tableau pour enelever les doublons.
-        arrayIngFiltreByRecipe = [...new Set(arrayIngFiltreByRecipe)];
-        arrayIngFiltreByRecipe.sort();
-          // ici je filtre mon tableau, pour pouvoir supprimé le doublons (l'element cliqué)
-        let filtrerarrayIng = arrayIngFiltreByRecipe.filter(
-          (ingr) => !selectedItems.includes(ingr)
-        );
+      // je fais un newSet de mon tableau pour enelever les doublons.
+      arrayIngFiltreByRecipe = [...new Set(arrayIngFiltreByRecipe)];
+      arrayIngFiltreByRecipe.sort();
+        // ici je filtre mon tableau, pour pouvoir supprimé le doublons (l'element cliqué)
+      let filtrerarrayIng = arrayIngFiltreByRecipe.filter(
+        (ingr) => !selectedItems.includes(ingr)
+      );
        
-          // je fais pareil pour les appareils
-        let arrayAppFiltre = [];
-        // research.map((appareil) => {
-        //   arrayAppFiltre.push(appareil.appliance);
-        // });
-        // ici v2 en boucle for
-        for (let i = 0; i < research.length; i++) {
-          const element = research[i];
-          arrayAppFiltre.push(element.appliance);
-          
-        }
-        arrayAppFiltre = [...new Set(arrayAppFiltre)];
-        arrayAppFiltre.sort();
-        // pareil pour les ustensiles
-        let arrayUstFiltre = [];
-        // research.map((ustensil) =>
-        //   ustensil.ustensils.forEach((element) => {
-        //     arrayUstFiltre.push(element);
-        //   })
-        // );
-        // ici v2 en boucle for
-        for (let i = 0; i < research.length; i++) {
-          const element = research[i];
-          for (let j = 0; j < element.ustensils.length; j++) {
-            const ele = element.ustensils[j];
-            arrayUstFiltre.push(ele);
-          }
-        }
-        arrayUstFiltre = [...new Set(arrayUstFiltre)];
-        arrayUstFiltre.sort();
+      // je fais pareil pour les appareils
+      let arrayAppFiltre = [];
+      research.map((appareil) => {
+        arrayAppFiltre.push(appareil.appliance);
+      });
+      
+      arrayAppFiltre = [...new Set(arrayAppFiltre)];
+      arrayAppFiltre.sort();
+
+      // pareil pour les ustensiles
+      let arrayUstFiltre = [];
+      research.map((ustensil) =>
+        ustensil.ustensils.forEach((element) => {
+          arrayUstFiltre.push(element);
+        })
+      );
+    
+      arrayUstFiltre = [...new Set(arrayUstFiltre)];
+      arrayUstFiltre.sort();
   
-        // ici j'efface les contenus des listes.
-        ulIngredient.innerText = "";
-        ulAppareil.innerText = "";
-        ulUstensils.innerText = "";
-        // ici je rappel les fonctions qui affiche mes listes d'ingredient, app et ustensiles
-        triIngredient(filtrerarrayIng);
-        triAppliance(arrayAppFiltre);
-        triUstens(arrayUstFiltre);
-        // ici j'appel ma fonction qui efface les recettes
-        deleteRecipe();
-        // ici j'appel ma fonction qui affiche mes recettes, avec le tableau qui contient les resultats.
-        displayRecipe(research);
+      // ici j'efface les contenus des listes.
+      ulIngredient.innerText = "";
+      ulAppareil.innerText = "";
+      ulUstensils.innerText = "";
+      // ici je rappel les fonctions qui affiche mes listes d'ingredient, app et ustensiles
+      triIngredient(filtrerarrayIng);
+      triAppliance(arrayAppFiltre);
+      triUstens(arrayUstFiltre);
+      // ici j'appel ma fonction qui efface les recettes
+      deleteRecipe();
+      // ici j'appel ma fonction qui affiche mes recettes, avec le tableau qui contient les resultats.
+      displayRecipe(research);
 
       
     });
@@ -162,14 +138,9 @@ export function triAppliance(arrayApp) {
     liAppareil.addEventListener("click", (e) => {
       selectedItems.push(app);
 
-
       selectAppareil(app);
 
-
       const research = searchByAllTags(recipesFiltered, selectedItems);
-
-      console.log(research);
-
 
       let arrayAppFiltre = [];
       research.map((appareil) => {
@@ -179,7 +150,6 @@ export function triAppliance(arrayApp) {
         (appa) => !selectedItems.includes(appa)
       );
     
-
       let arrayIngFiltreByRecipe = [];
       research.map((ingredients) =>
         ingredients.ingredients.forEach((element) => {
@@ -227,14 +197,10 @@ export function triUstens(arrayUstens) {
     liUst.addEventListener("click", (e) => {
       selectedItems.push(ust);
 
-
       selectUstens(ust);
 
-   
       const research = searchByAllTags(recipesFiltered, selectedItems);
 
-      
-      console.log(research);
 
       let arrayUstFiltre = [];
       research.map((ustensil) =>
@@ -281,18 +247,13 @@ export function triUstens(arrayUstens) {
 
 // ici je fais la fonction qui vas me permettre d'afficher les recettes de base.
 export function displayRecipe(recipesFiltered) {
-  // recipesFiltered.forEach((element) => {
-  //   const factorie = factoryRecipe(element);
-  //   const contentRecetteCard = document.querySelector(".recette_card");
-  //   contentRecetteCard.appendChild(factorie);
-  // });
+  // je recupere les recettes, et je fais une boucle for, ou j'appel ma fonction qui me permet d'afficher les recettes.
   for (let i = 0; i < recipesFiltered.length; i++) {
     const element = recipesFiltered[i];
     const factorie = factoryRecipe(element);
     const contentRecetteCard = document.querySelector(".recette_card");
     contentRecetteCard.appendChild(factorie); 
   }
-  // ici je vais faire pareil , mais avec une boucle for, pour la v2
 }
 // ici je fais la fonction qui vas me supprimé toute les recettes de la page html.
 export function deleteRecipe() {
@@ -351,7 +312,7 @@ input.addEventListener("keyup", (e) => {
     arrayUstFiltre = [...new Set(arrayUstFiltre)];
     // pour pouvoir ici rappeler ma fonction qui affiche les recettes, mais cette fois avec le tableau contenant les résultat.
     displayRecipe(resultSearch);
-
+      // ici je met un if, qui regarde la longueur du tableau contenant le resultat, si le tableau et vide alors j'affiche le message d'erreur.
     if (resultSearch.length === 0) {
       const msg= document.querySelector('.no-recipe')
       msg.style.display="block"
@@ -371,13 +332,11 @@ input.addEventListener("keyup", (e) => {
     triIngredient(arrayIng);
     triAppliance(arrayApp)
     triUstens(arrayUstens)
-      const msg= document.querySelector('.no-recipe')
-      msg.style.display="none"
+    // ici j'efface le message d'erreur.
+    const msg= document.querySelector('.no-recipe')
+    msg.style.display="none"
   }
 });
-// if (recette_card === "") {
-//   document.querySelector('.no-recipe').classList.toggle("no-recipeActiv")
-// }
 // ici je met en place les ecouteur d'évenement qui dans la barre de recherches des ingredients appareil etc.. vas sortir les bons tags quand l'user cherche coco par exemple.
 const inputIngredient = document.querySelector(".ingredient_btn");
 const ingredientItem = document.querySelectorAll(".ingredient_item");

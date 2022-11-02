@@ -1,6 +1,7 @@
 // ici faire la fonction d'ouverture du bouton ingrédient, et l'appeler sur l'add event listener situé sur la page index. 
 import { selectedItems, recipesFiltered, displayRecipe, deleteRecipe, triIngredient, triAppliance, triUstens } from "./index.js";
 import {  searchByAllTags } from "./algorithme/searchByTags.js";
+// je met en place ma fonction qui vas m'ouvrir la liste des ingredients, appareil et ustensils 
 export function openIngredient(){
     //ici je récupere les elements dont j'ai besoin.
     const ul = document.querySelector('.ingredient');
@@ -35,8 +36,9 @@ export function openUstens(){
     btn.classList.toggle('ustensiles_open')
     icon.classList.toggle('iconUstensOpen')
 }
-
+// ici je met en place la fonction qui permet de rechercher un ingredient dans la liste.
 export function searchInList(input, item){
+    // item correspond a tout mes li (voir avec index ligne 352)
     item.forEach(li => {
         if (!li.textContent.toLowerCase().includes(input)) {
             li.style.display="none"
@@ -46,6 +48,7 @@ export function searchInList(input, item){
         }
     });
 }
+// ici je met en place la fonction qui va me permettre d'afficher le tag, au clique d'un ingredient.
 export function selectTag(oneTag){
     const divTagSelect = document.querySelector('.tagSelect');
     const tagAfficher = document.createElement('button');
@@ -118,7 +121,7 @@ export function selectTag(oneTag){
     tagAfficher.appendChild(iconClose);
     divTagSelect.appendChild(tagAfficher);
 }
-
+// pareil pour les appareil
 export function selectAppareil(oneTag){
     //mettre en place cette fonction, comme au dessus.
     const divTagSelect = document.querySelector('.tagSelect');
@@ -193,7 +196,7 @@ export function selectAppareil(oneTag){
     tagAfficher.appendChild(iconClose);
     divTagSelect.appendChild(tagAfficher);
 }
-
+// pareil pour les ustensils.
 export function selectUstens(oneTag){
     //mettre en place cette fonction, comme au dessus.
     const divTagSelect = document.querySelector('.tagSelect');
@@ -267,7 +270,7 @@ export function selectUstens(oneTag){
     tagAfficher.appendChild(iconClose);
     divTagSelect.appendChild(tagAfficher);
 }
-// la je met en place la fonction qui va le refermer.
+// la je met en place la fonction qui va enlever le tag.
 function removeTag(button){
     // je me sert de remove pour supprimé l'élement html, beaucoup plus simple pour ce cas la plutot que de jouer avec le style, sa fonctionne a moitié vu que sa m'enleve le premiere element html
     
