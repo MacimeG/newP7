@@ -12,6 +12,9 @@ img{
     height: 100px;
     width: auto;
 }
+.hidden{
+    display: none;
+}
 .recherche{
     margin-left: 10px;
     margin-right: 10px;
