@@ -17,6 +17,9 @@ img{
     margin-right: 10px;
     margin-bottom: 25px;
 }
+.hidden{
+    display: none;
+}
 #search{
     width: 100%;
     height: 60px;

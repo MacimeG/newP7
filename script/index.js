@@ -297,7 +297,11 @@ input.addEventListener("keyup", (e) => {
     const resultSearch = searchRecipe(e.target.value, recipesFiltered);
     // ici j'efface le contenu de base
     deleteRecipe();
-    console.log(resultSearch);
+
+    if (resultSearch.length === 0) {
+      document.querySelector('.no-recipe').classList.toggle("hidden")
+      
+    }
     let arrayIngFiltreByRecipe = [];
     resultSearch.map((ingredients) =>
       ingredients.ingredients.forEach((element) => {
@@ -331,6 +335,7 @@ input.addEventListener("keyup", (e) => {
     triUstens(arrayUstFiltre);
   } else {
     // ici je rappel displayRecipe comme elle est appelé de base.
+    deleteRecipe()
     displayRecipe(recipesFiltered);
     triIngredient(arrayIng);
     triAppliance(arrayApp)
