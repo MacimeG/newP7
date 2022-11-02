@@ -77,7 +77,7 @@ img{
     color: white;
     cursor: pointer;
     margin-top: 10px;
-    padding-left: 5px;
+    margin-left: 10px;
 }
 .ulAppareilOpen{
     display: block;
@@ -117,7 +117,7 @@ img{
     font-weight: normal;
     cursor: pointer;
     margin-top: 5px;
-    padding-left: 5px;
+    margin-left: 10px;
 }
 .ingredient_btn{
     background-color: #3282F7;
@@ -221,7 +221,7 @@ img{
     font-weight: normal;
     margin-top: 10px;
     cursor: pointer;
-    padding-left: 5px;
+    margin-left: 10px;
 }
 
 .title_recette{
