@@ -68,7 +68,6 @@ export function selectTag(oneTag){
             const element = selectedItems[i];
             if(element === tagTitle.textContent){
                 selectedItems.splice(i, 1)
-                console.log(selectedItems);
                 const newSearching = searchByAllTags(recipesFiltered, selectedItems)
 
                 let arrayIngFiltreByRecipe = [];

@@ -298,10 +298,7 @@ input.addEventListener("keyup", (e) => {
     // ici j'efface le contenu de base
     deleteRecipe();
 
-    if (resultSearch.length === 0) {
-      document.querySelector('.no-recipe').classList.toggle("hidden")
-      
-    }
+    
     let arrayIngFiltreByRecipe = [];
     resultSearch.map((ingredients) =>
       ingredients.ingredients.forEach((element) => {
@@ -333,6 +330,11 @@ input.addEventListener("keyup", (e) => {
     triIngredient(arrayIngFiltreByRecipe);
     triAppliance(arrayAppFiltre);
     triUstens(arrayUstFiltre);
+
+    if (resultSearch.length === 0) {
+      const msg= document.querySelector('.no-recipe')
+      msg.style.display="block"
+    }
   } else {
     // ici je rappel displayRecipe comme elle est appelé de base.
     deleteRecipe()
@@ -340,7 +342,10 @@ input.addEventListener("keyup", (e) => {
     triIngredient(arrayIng);
     triAppliance(arrayApp)
     triUstens(arrayUstens)
+    const msg= document.querySelector('.no-recipe')
+    msg.style.display="none"
   }
+ 
 });
 
 // ici je met en place les ecouteur d'évenement qui dans la barre de recherches des ingredients appareil etc.. vas sortir les bons tags quand l'user cherche coco par exemple.
