@@ -12,6 +12,9 @@
         align-items: baseline;
         /* margin-left: 45px; */
     }
+    .searchIcon{
+        left: 95%;
+    }
     .recette_card{
         display: flex;
         flex-direction: row;
@@ -29,8 +32,27 @@
     .ingredientOpen{
         width: 55%;
     }
+    .appareil_icon{
+        left: 220px;
+    }
+    .appareilOpen{
+        /* z-index: 99;
+        left: 285px;
+        width: 35%; */
+        z-index: 99;
+        left: 296px;
+        width: 35%;
+        position: absolute;
+    }
     .ustensiles_open{
-        width: 55%;
+        /* width: 55%; */
+        width: 40%;
+        position: absolute;
+        left: 32%;
+        bottom: 182px;
+    }
+    .iconUstensOpen{
+        left: 350px;
     }
     .recherche{
         margin-left: 0px;

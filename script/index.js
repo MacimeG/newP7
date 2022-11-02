@@ -76,12 +76,20 @@ export function triIngredient(arrayIng) {
         // ici je crée un tableau vide dans lequel je vais inséré les ingredients restant par rapport a la recherche.
         let arrayIngFiltreByRecipe = [];
         // ici je fais un .map sur le resultat de la recherche pour récupéré les ingredients
-        research.map((ingredients) =>
-          ingredients.ingredients.forEach((ele) => {
-            // je push les ingredients dans mon tableau vide
-            arrayIngFiltreByRecipe.push(ele.ingredient);
-          })
-        );
+        // research.map((ingredients) =>
+        //   ingredients.ingredients.forEach((ele) => {
+        //     // je push les ingredients dans mon tableau vide
+        //     arrayIngFiltreByRecipe.push(ele.ingredient);
+        //   })
+        // );
+        // ici je fais une boucle for pour la v2
+        for (let i = 0; i < research.length; i++) {
+          const element = research[i];
+          for (let j = 0; j < element.ingredients.length; j++) {
+            const ingredients = element.ingredients[j];
+            arrayIngFiltreByRecipe.push(ingredients.ingredient);
+          }
+        }
         // je fais un newSet de mon tableau pour enelever les doublons.
         arrayIngFiltreByRecipe = [...new Set(arrayIngFiltreByRecipe)];
         arrayIngFiltreByRecipe.sort();
@@ -92,18 +100,32 @@ export function triIngredient(arrayIng) {
        
           // je fais pareil pour les appareils
         let arrayAppFiltre = [];
-        research.map((appareil) => {
-          arrayAppFiltre.push(appareil.appliance);
-        });
+        // research.map((appareil) => {
+        //   arrayAppFiltre.push(appareil.appliance);
+        // });
+        // ici v2 en boucle for
+        for (let i = 0; i < research.length; i++) {
+          const element = research[i];
+          arrayAppFiltre.push(element.appliance);
+          
+        }
         arrayAppFiltre = [...new Set(arrayAppFiltre)];
         arrayAppFiltre.sort();
         // pareil pour les ustensiles
         let arrayUstFiltre = [];
-        research.map((ustensil) =>
-          ustensil.ustensils.forEach((element) => {
-            arrayUstFiltre.push(element);
-          })
-        );
+        // research.map((ustensil) =>
+        //   ustensil.ustensils.forEach((element) => {
+        //     arrayUstFiltre.push(element);
+        //   })
+        // );
+        // ici v2 en boucle for
+        for (let i = 0; i < research.length; i++) {
+          const element = research[i];
+          for (let j = 0; j < element.ustensils.length; j++) {
+            const ele = element.ustensils[j];
+            arrayUstFiltre.push(ele);
+          }
+        }
         arrayUstFiltre = [...new Set(arrayUstFiltre)];
         arrayUstFiltre.sort();
   
@@ -259,11 +281,18 @@ export function triUstens(arrayUstens) {
 
 // ici je fais la fonction qui vas me permettre d'afficher les recettes de base.
 export function displayRecipe(recipesFiltered) {
-  recipesFiltered.forEach((element) => {
+  // recipesFiltered.forEach((element) => {
+  //   const factorie = factoryRecipe(element);
+  //   const contentRecetteCard = document.querySelector(".recette_card");
+  //   contentRecetteCard.appendChild(factorie);
+  // });
+  for (let i = 0; i < recipesFiltered.length; i++) {
+    const element = recipesFiltered[i];
     const factorie = factoryRecipe(element);
     const contentRecetteCard = document.querySelector(".recette_card");
-    contentRecetteCard.appendChild(factorie);
-  });
+    contentRecetteCard.appendChild(factorie); 
+  }
+  // ici je vais faire pareil , mais avec une boucle for, pour la v2
 }
 // ici je fais la fonction qui vas me supprimé toute les recettes de la page html.
 export function deleteRecipe() {

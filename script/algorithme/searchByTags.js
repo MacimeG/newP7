@@ -9,6 +9,39 @@ export function searchByAllTags(recipesFiltered, tagSelected){
     return recipesFiltered
 }
 
+// export function searchByAllTags(recipesFiltered, tagSelected){
+//     // ici faire la meme fonction qu'au dessus, mais en boucle native.
+//     const result = []
+//     for (let i = 0; i < tagSelected.length; i++) {
+//         const tag = tagSelected[i];
+
+//         console.log(recipesFiltered);
+
+//         for (let j = 0; j < recipesFiltered.length; j++) {
+
+//             let recipes = recipesFiltered[j];
+
+//             for (let k = 0; k < recipes.ingredients.length; k++) {
+
+//                 const ingredients = recipes.ingredients[k];
+
+//                 if (ingredients.ingredient.includes(tag)) {
+//                     result.push(recipesFiltered[j])
+//                     console.log(recipesFiltered[j]);
+//                     // return recipesFiltered[j]
+                    
+//                 }
+                
+//             }
+            
+//             // result.push(recipesFiltered[j])
+            
+//         }
+    
+//     }
+//     console.log(result);
+//     // return result
+// }
 
 
 

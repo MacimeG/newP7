@@ -223,8 +223,7 @@ export function selectUstens(oneTag){
                 let arrayIngFiltreByRecipe = [];
                 newSearching.map((ingredients) =>
                   ingredients.ingredients.forEach((element) => {
-                    console.log(element.ingredient);
-                    // arrayIngFiltreByRecipe.push(element.ingredient);
+                    arrayIngFiltreByRecipe.push(element.ingredient);
                   })
                 );
                 arrayIngFiltreByRecipe = [...new Set(arrayIngFiltreByRecipe)];
