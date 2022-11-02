@@ -326,10 +326,7 @@ input.addEventListener("keyup", (e) => {
     const resultSearch = searchRecipe(e.target.value, recipesFiltered);
     // ici j'efface le contenu de base
     deleteRecipe();
-    if (resultSearch.length === 0) {
-      document.querySelector('.no-recipe').classList.toggle("hidden")
-      
-    }
+   
     let arrayIngFiltreByRecipe = [];
     resultSearch.map((ingredients) =>
       ingredients.ingredients.forEach((element) => {
@@ -355,6 +352,10 @@ input.addEventListener("keyup", (e) => {
     // pour pouvoir ici rappeler ma fonction qui affiche les recettes, mais cette fois avec le tableau contenant les résultat.
     displayRecipe(resultSearch);
 
+    if (resultSearch.length === 0) {
+      const msg= document.querySelector('.no-recipe')
+      msg.style.display="block"
+    }
     ulIngredient.innerText = "";
     ulAppareil.innerText = "";
     ulUstensils.innerText = "";
@@ -370,7 +371,8 @@ input.addEventListener("keyup", (e) => {
     triIngredient(arrayIng);
     triAppliance(arrayApp)
     triUstens(arrayUstens)
-   
+      const msg= document.querySelector('.no-recipe')
+      msg.style.display="none"
   }
 });
 // if (recette_card === "") {
