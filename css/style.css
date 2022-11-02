@@ -25,6 +25,11 @@ img{
     background-color: #E7E7E7;
     margin-bottom: 40px;
 }
+.searchIcon{
+    position: relative;
+    top: 40px;
+    left: 92%;
+}
 .search_comboBox{
     display: flex;
     flex-direction: column;
