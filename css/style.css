@@ -76,12 +76,13 @@ img{
     font-weight: normal;
     color: white;
     cursor: pointer;
-    /* margin-top: 10px; */
+    margin-top: 10px;
     margin-left: 10px;
-    line-height: 2;
 }
 .ulAppareilOpen{
-    display: block;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    overflow: scroll;
 }
 .appareilOpen{
     background-color: #68D9A4;

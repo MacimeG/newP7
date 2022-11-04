@@ -45,7 +45,7 @@
     }
     .ulAppareilOpen{
         position: absolute;
-        display: block;
+        /* display: block; */
         width: inherit;
     }
     .ustensiles_open{
