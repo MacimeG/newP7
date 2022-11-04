@@ -56,7 +56,7 @@ img{
     background-color: #3282F7;
     width: 86%;
     z-index: 99;
-    position: absolute;
+    /* position: absolute; */
 }
 .search_appareil{
     margin-bottom: 15px;

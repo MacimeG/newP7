@@ -13,7 +13,7 @@ export default function searchRecipe(lettre, recipesFiltered){
         for (let j = 0; j < element.ingredients.length; j++) {
             const ingredient = element.ingredients[j];
        
-            if(element.name.toLowerCase().includes(lettre) || element.description.toLowerCase().includes(lettre) || ingredient.ingredient.toLowerCase().includes(lettre)){
+            if(element.name.toLowerCase().includes(lettre.toLowerCase()) || element.description.toLowerCase().includes(lettre.toLowerCase()) || ingredient.ingredient.toLowerCase().includes(lettre.toLowerCase())){
                 result.push(recipesFiltered[i])
             }
         }
