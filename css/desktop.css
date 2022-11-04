@@ -31,31 +31,35 @@
     }
     .ingredientOpen{
         width: 55%;
+        position: relative;
+    }
+    .ingredient_list_open{
+        position: absolute;
+        /* width: 46%; */
     }
     .appareil_icon{
         left: 220px;
     }
     .appareilOpen{
-        /* z-index: 99;
-        left: 285px;
-        width: 35%; */
-        z-index: 99;
-        /* left: 296px; */
-        /* left: 20%; */
-        left: 23%;
-        width: 35%;
+        width: 437px;
+    }
+    .ulAppareilOpen{
         position: absolute;
+        display: block;
+        width: inherit;
     }
     .ustensiles_open{
-        /* width: 55%; */
         width: 40%;
+        position: relative;
+        width: 518px;
+    }
+    .ustensOpen{
+        background-color: #ED6454;
+        width: auto;
         position: absolute;
-        /* left: 32%; */
-        left: 39%;
-        /* bottom: 182px; */
     }
     .iconUstensOpen{
-        left: 350px;
+        left: 305px;
     }
     .recherche{
         margin-left: 0px;
@@ -65,7 +69,7 @@
         left: 65%;
     }
 }
-@media screen and (min-width: 1245px) {
+/* @media screen and (min-width: 1245px) {
     .appareilOpen{
         left: 22%;
     }
@@ -89,4 +93,4 @@
     .ustensiles_open{
         left: 33%;
     }
-}
+} */
