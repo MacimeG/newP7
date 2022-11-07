@@ -137,19 +137,19 @@ img{
 .btnIcon{
     position: relative;
     color: white;
-    left: 85px;
+    left: 139px;
     bottom: 46px;
 }
 .btnIconAppareil{
     position: relative;
     color: white;
-    left: 85px;
+    left: 139px;
     bottom: 46px;
 }
 .btnIconUstens{
     position: relative;
     color: white;
-    left: 85px;
+    left: 139px;
     bottom: 46px;
 }
 /* ici c'est pour mettre en place le toggle, sur l'icon de la fleche. */
@@ -166,7 +166,7 @@ img{
 /* ici c'est pour mettre en place le toggle */
 .ing{
     bottom: 0px;
-    /* left: 400px; */
+    left: 80px;
     transform: rotate(180deg);
 }
 .boxInput::placeholder{
@@ -223,7 +223,7 @@ img{
     font-weight: normal;
     margin-top: 10px;
     cursor: pointer;
-    margin-left: 10px;
+    margin-left: 3px;
 }
 
 .title_recette{

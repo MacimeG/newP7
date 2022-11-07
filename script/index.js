@@ -312,6 +312,9 @@ input.addEventListener("keyup", (e) => {
     arrayUstFiltre = [...new Set(arrayUstFiltre)];
     // pour pouvoir ici rappeler ma fonction qui affiche les recettes, mais cette fois avec le tableau contenant les résultat.
     displayRecipe(resultSearch);
+    
+    const msg= document.querySelector('.no-recipe')
+    msg.style.display="none"
       // ici je met un if, qui regarde la longueur du tableau contenant le resultat, si le tableau et vide alors j'affiche le message d'erreur.
     if (resultSearch.length === 0) {
       const msg= document.querySelector('.no-recipe')
