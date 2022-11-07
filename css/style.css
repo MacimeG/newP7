@@ -87,6 +87,7 @@ img{
 .appareilOpen{
     background-color: #68D9A4;
     width: 86%;
+    border-radius: 5px;
 }
 .search_ustensiles{
     width: min-content;
@@ -95,6 +96,7 @@ img{
 .ustensiles_open{
     background-color: #ED6454;
     width: 86%;
+    border-radius: 5px;
 }
 .ustens{
     list-style: none;
