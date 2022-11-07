@@ -328,6 +328,9 @@ input.addEventListener("keyup", (e) => {
   } else {
     // ici je rappel displayRecipe comme elle est appelé de base.
     deleteRecipe()
+    ulIngredient.innerText = "";
+    ulAppareil.innerText = "";
+    ulUstensils.innerText = "";
     displayRecipe(recipesFiltered);
     triIngredient(arrayIng);
     triAppliance(arrayApp)
