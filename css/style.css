@@ -137,19 +137,19 @@ img{
 .btnIcon{
     position: relative;
     color: white;
-    left: 139px;
+    left: 85px;
     bottom: 46px;
 }
 .btnIconAppareil{
     position: relative;
     color: white;
-    left: 139px;
+    left: 85px;
     bottom: 46px;
 }
 .btnIconUstens{
     position: relative;
     color: white;
-    left: 139px;
+    left: 85px;
     bottom: 46px;
 }
 /* ici c'est pour mettre en place le toggle, sur l'icon de la fleche. */
