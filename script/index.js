@@ -313,6 +313,9 @@ input.addEventListener("keyup", (e) => {
     arrayUstFiltre = [...new Set(arrayUstFiltre)];
     // pour pouvoir ici rappeler ma fonction qui affiche les recettes, mais cette fois avec le tableau contenant les résultat.
     displayRecipe(resultSearch);
+    
+    const msg= document.querySelector('.no-recipe')
+    msg.style.display="none"
 
     ulIngredient.innerText = "";
     ulAppareil.innerText = "";
