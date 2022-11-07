@@ -2,9 +2,6 @@ import { recipes } from "../data/recipes.js";
 import factoryRecipe from "./factorie/recipesFactorie.js";
 import searchRecipe from "./algorithme/algo.js";
 import {
-  // searchByApp,
-  // searchByTags,
-  // searchByTagUstens,
   searchByAllTags
 } from "./algorithme/searchByTags.js";
 import {
@@ -70,18 +67,17 @@ export function triIngredient(arrayIng) {
       selectTag(ing);
       // j'appel ma fonction searchByTags, ou le resultat et stocké dans la const research.
    
-        const research = searchByAllTags(recipesFiltered, selectedItems);
+      const research = searchByAllTags(recipesFiltered, selectedItems);
   
-        console.log(research);
-        // ici je crée un tableau vide dans lequel je vais inséré les ingredients restant par rapport a la recherche.
-        let arrayIngFiltreByRecipe = [];
-        // ici je fais un .map sur le resultat de la recherche pour récupéré les ingredients
-        research.map((ingredients) =>
-          ingredients.ingredients.forEach((ele) => {
-            // je push les ingredients dans mon tableau vide
-            arrayIngFiltreByRecipe.push(ele.ingredient);
-          })
-        );
+      // ici je crée un tableau vide dans lequel je vais inséré les ingredients restant par rapport a la recherche.
+      let arrayIngFiltreByRecipe = [];
+      // ici je fais un .map sur le resultat de la recherche pour récupéré les ingredients
+      research.map((ingredients) =>
+        ingredients.ingredients.forEach((ele) => {
+          // je push les ingredients dans mon tableau vide
+          arrayIngFiltreByRecipe.push(ele.ingredient);
+        })
+      );
         // je fais un newSet de mon tableau pour enelever les doublons.
         arrayIngFiltreByRecipe = [...new Set(arrayIngFiltreByRecipe)];
         arrayIngFiltreByRecipe.sort();
@@ -90,7 +86,7 @@ export function triIngredient(arrayIng) {
           (ingr) => !selectedItems.includes(ingr)
         );
        
-          // je fais pareil pour les appareils
+        // je fais pareil pour les appareils
         let arrayAppFiltre = [];
         research.map((appareil) => {
           arrayAppFiltre.push(appareil.appliance);
@@ -205,14 +201,9 @@ export function triUstens(arrayUstens) {
     liUst.addEventListener("click", (e) => {
       selectedItems.push(ust);
 
-
       selectUstens(ust);
 
-   
       const research = searchByAllTags(recipesFiltered, selectedItems);
-
-      
-      console.log(research);
 
       let arrayUstFiltre = [];
       research.map((ustensil) =>
@@ -298,7 +289,6 @@ input.addEventListener("keyup", (e) => {
     // ici j'efface le contenu de base
     deleteRecipe();
 
-    
     let arrayIngFiltreByRecipe = [];
     resultSearch.map((ingredients) =>
       ingredients.ingredients.forEach((element) => {

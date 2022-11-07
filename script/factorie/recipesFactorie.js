@@ -49,26 +49,6 @@ export default function factoryRecipe(recipesFiltered){
             }
         });
 
-        // ici la v2
-        // for (let i = 0; i < ingredients.length; i++) {
-        //     const ingredient = ingredients[i];
-        //     const li = document.createElement('li');
-        //     const b = document.createElement('b');
-        //     b.textContent= ingredient.ingredient;
-        //     li.appendChild(b);
-        //     ul.appendChild(li);
-        //     // mettre en place une condition pour verifier si les quantiter et les unité sont vides ou undefini.
-        //     if(ingredient.quantity !== null && ingredient.quantity !== undefined){
-        //         const span = document.createElement('span');
-        //         span.textContent = `: ${ingredient.quantity}`;
-        //         if(ingredient.unit !== null && ingredient.unit !== undefined){
-        //             span.textContent= `: ${ingredient.quantity} ${ingredient.unit}`
-        //         }
-        //         li.appendChild(span);
-        //     }
-            
-        // }
-
         article.appendChild(pictureCard);
         article.appendChild(card_alldetail);
         card_alldetail.appendChild(card_header)

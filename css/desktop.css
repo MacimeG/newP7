@@ -1,7 +1,4 @@
 @media screen and (min-width: 1150px) {
-    /* #search{
-        margin-left: 45px;
-    } */
     main{
         width: 85%;
         margin-left: auto;
@@ -10,7 +7,6 @@
     .search_comboBox{
         flex-direction: row;
         align-items: baseline;
-        /* margin-left: 45px; */
     }
     .searchIcon{
         left: 95%;
@@ -19,7 +15,6 @@
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        /* align-items: baseline; */
         justify-content: center;
         width: 100%;
         justify-content: space-around;
@@ -27,7 +22,6 @@
     .search_ingredients, .search_appareil{
         margin-right: 20px;
         margin-bottom: 0px;
-       
     }
     .ingredientOpen{
         width: 55%;
@@ -35,7 +29,7 @@
     }
     .ingredient_list_open{
         position: absolute;
-        /* width: 46%; */
+
     }
     .appareil_icon{
         left: 220px;
@@ -45,7 +39,7 @@
     }
     .ulAppareilOpen{
         position: absolute;
-        /* display: block; */
+
         width: inherit;
     }
     .ustensiles_open{
@@ -69,28 +63,3 @@
         left: 65%;
     }
 }
-/* @media screen and (min-width: 1245px) {
-    .appareilOpen{
-        left: 22%;
-    }
-    .ustensiles_open{
-        left: 38%;
-    }
-}
-@media screen and (min-width: 1355px) {
-    .appareilOpen{
-        left: 21%;
-    }
-    .ustensiles_open{
-        left: 36%;
-    }
-   
-}
-@media screen and (min-width: 1490px) {
-    .appareilOpen{
-        left: 20%;
-    }
-    .ustensiles_open{
-        left: 33%;
-    }
-} */

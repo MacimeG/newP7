@@ -142,7 +142,6 @@ export function selectAppareil(oneTag){
             if(element === tagTitle.textContent){
                 
                 selectedItems.splice(i, 1)
-                // selectedApp.splice(i, 1)
 
                 const newSearching = searchByAllTags(recipesFiltered, selectedItems)
 
@@ -215,7 +214,6 @@ export function selectUstens(oneTag){
             const element = selectedItems[i];
             if(element === tagTitle.textContent){
                 selectedItems.splice(i, 1)
-                // selectedUst.splice(i, 1)
                
                 const newSearching = searchByAllTags(recipesFiltered, selectedItems)
 
