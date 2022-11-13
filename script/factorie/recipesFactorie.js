@@ -31,7 +31,7 @@ export default function factoryRecipe(recipesFiltered){
 
 
         // ici je vais mettre en place une boucle foreach pour pouvoir récupéré les ingredients, et les faires affichers dans mes cards. (voir si je peux mettre cette boucle foreach dans une fonction apar et si je peux la rappeler dans cette fonction la / cardRecipe.)
-        // faire la meme chose avec une boucle for pour la v2, NE SURTOUT PAS SUPPRIMER CELLE CI !!!!!!!!
+      
         ingredients.forEach(ingredient => {
             const li = document.createElement('li');
             const b = document.createElement('b');
