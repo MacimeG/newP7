@@ -142,9 +142,6 @@ export function triAppliance(arrayApp) {
 
       const research = searchByAllTags(recipesFiltered, selectedItems);
 
-      console.log(research);
-
-
       let arrayAppFiltre = [];
       research.map((appareil) => {
         arrayAppFiltre.push(appareil.appliance);

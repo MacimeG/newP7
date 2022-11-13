@@ -136,7 +136,6 @@ export function selectAppareil(oneTag){
         let ulUstensils = document.querySelector(".ustens");
 
         removeTag(tagAfficher);
-        console.log(selectedItems);
         for (let i = 0; i < selectedItems.length; i++) {
             const element = selectedItems[i];
             if(element === tagTitle.textContent){
