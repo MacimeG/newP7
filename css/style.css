@@ -131,8 +131,16 @@ img{
 .appareil_btn{
     background-color: #68D9A4;
 }
+.appareil_btn:focus{
+    outline: none;
+    color: white;
+}
 .ustens_btn{
     background-color: #ED6454;
+}
+.ustens_btn:focus{
+    outline: none;
+    color: white;
 }
 .btnIcon{
     position: relative;
